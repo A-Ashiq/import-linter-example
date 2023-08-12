@@ -1,0 +1,31 @@
+[importlinter]
+root_packages =
+    module_a
+    module_b
+    tests
+
+[importlinter:contract:Module A has a layered architecture]
+name=Module A enforces a clear layered architecture within itself.
+type=layers
+layers=
+    module_a.api
+    module_a.domain
+    module_a.data
+
+[importlinter:contract:Independent modules]
+name=Modules A & B are independent of each other, with the exception of designated interfaces
+type=independence
+modules=
+    module_a
+    module_b
+ignore_imports=
+    module_b.module_a_interface -> module_a.api
+
+[importlinter:contract:Source code does not depend on tests]
+name = Source code does not depend on any test code
+type = forbidden
+source_modules=
+    module_a
+    module_b
+forbidden_modules=
+    tests
