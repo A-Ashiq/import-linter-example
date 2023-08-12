@@ -1,0 +1,5 @@
+click==8.1.6
+grimp==2.5
+import-linter==1.10.0
+tomli==2.0.1
+typing_extensions==4.7.1
